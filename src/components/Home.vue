@@ -44,48 +44,52 @@
       </v-row>
     </v-container>
     <!-- #EEEEF1 -->
-    
-      <div class="features">
-        <v-container>
-          <div class="tabs">
-            <ul class="tab-items d-flex justify-center">
-              <li>
-                <button type="button" @click="updateTabContent(0)" class="tab_buttn active_link1" id="tab1">
-                  <v-icon color="white" large class="px-20">phonelink</v-icon>
-                  <span class="btn-txt d-none d-flex">MultiDevice</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" @click="updateTabContent(1)" class="tab_buttn" id="tab2">
-                  <v-icon color="white" large class="px-20">vertical_split</v-icon>
-                  <span class="btn-txt d-flex">SplitScreen</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" @click="updateTabContent(2)" class="tab_buttn" id="tab3">
-                  <v-icon color="white" large class="px-20">hd</v-icon>
-                  <span class="btn-txt">HighDefination</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" @click="updateTabContent(3)" class="tab_buttn" id="tab4">
-                  <v-icon color="white" large class="px-20">public</v-icon>
-                  <span class="btn-txt d-flex">GlobalAccess</span>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div class="tab-content text-justify">
-            <v-container class="content-container">{{tabsContent[tab_no].content}}</v-container>
+    <!-- pricing -->
+    <div class="price-cards-label d-flex justify-center">Select your plan</div>
+    <div class="price-cards-container d-flex justify-center align-center">
+      <v-slide-group
+        v-model="model"
+        class="pa-4"
+        :prev-icon="true"
+        :next-icon="true"
+        :multiple="multiple"
+        :mandatory="mandatory"
+        :show-arrows="true"
+        :center-active="centerActive"
+        height="401"
+      >
+        <v-slide-item v-for="n in rateCards" :key="n" v-slot:default="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            width
+            height="220"
+            :to="'/checkout-'+n.plan"
+            @click="toggle"
+          >
+            <v-img :src="n.src" width="256" class="d-none d-sm-flex" @click="checkout(n.plan)"></v-img>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
 
-            <div class="devices-list-label d-flex justify-center mt-100">Supported Technologies.</div>
-            <div class="devices d-flex align-center">
-              <ul class="devices-list">
-                <li v-for="n in other_devices" :key="n">{{n}}</li>
-              </ul>
-            </div>
-          </div>
-        </v-container>
+      <div class>
+        <v-card max-height="400" to="/checkout" class="mobile-price-card d-flex d-sm-none">
+          <v-img :src="rateCards[rateCard].src" width="400"></v-img>
+        </v-card>
+      </div>
+    </div>
+    <div class="d-flex justify-center">Every Subscription includes</div>
+
+    <!--tabs for wifinity features -->
+    <div class="features-label d-flex justify-center align-center">Features you will Enjoy.</div>
+    <v-img
+      height="500"
+      gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"
+      aspect-ratio="2"
+      :src="require('../assets/wifinity/man-chearing.jpg')"
+    >
+      <div class="features">
+        
       </div>
     </v-img>
   </div>
