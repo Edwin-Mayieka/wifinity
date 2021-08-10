@@ -64,7 +64,6 @@
             class="ma-4"
             width
             height="220"
-            :to="'/checkout-'+n.plan"
             @click="toggle"
           >
             <v-img :src="n.src" width="256" class="d-none d-sm-flex" @click="checkout(n.plan)"></v-img>
@@ -121,7 +120,11 @@
           <div class="tab-content text-justify">
             <v-container class="content-container">{{tabsContent[tab_no].content}}</v-container>
 
-           
+            <div class="devices-list-label d-flex justify-center mt-100">Supported Technologies.</div>
+            <div class="devices d-flex align-center">
+              <ul class="devices-list">
+                <li v-for="n in other_devices" :key="n">{{n}}</li>
+              </ul>
             </div>
           </div>
         </v-container>
