@@ -8,7 +8,84 @@
         transition="fade-transition"
       ></v-carousel-item>
     </v-carousel>
+    <v-container>
+      <v-row>
+        <v-col cols="12" sm="6">
+          <v-card height="400px" color="#1D0C42" class="white--text wifinity-card">
+            <v-card-title class="justify-center">WifinityTv</v-card-title>
+            <v-card-text class="text-left">
+              <div class="wifinity-desc text-justify">
+                WifinityTv brings you all the entertainment you need. With a diverse worldwide channel list, entertainment has never been better.
+                You don’t have to worry on how to catch up with your favourite local content even while on travel.
+                <br />
+                <b>we got you covered!</b>
+                <br />
+
+                <b>All you need is a stable internet connection and Good taste!</b>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-card height>
+            <v-img
+              :src="require('../assets/wifinity/cheerful-girlfriends.jpg')"
+              height="400px"
+              class="white--text"
+              right
+            >
+              <div class="overlay">
+                <v-card-title class="justify-center">Enjoy the Diversity</v-card-title>
+                <v-card-text class="text-center"></v-card-text>
+              </div>
+            </v-img>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <!-- #EEEEF1 -->
     
+      <div class="features">
+        <v-container>
+          <div class="tabs">
+            <ul class="tab-items d-flex justify-center">
+              <li>
+                <button type="button" @click="updateTabContent(0)" class="tab_buttn active_link1" id="tab1">
+                  <v-icon color="white" large class="px-20">phonelink</v-icon>
+                  <span class="btn-txt d-none d-flex">MultiDevice</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" @click="updateTabContent(1)" class="tab_buttn" id="tab2">
+                  <v-icon color="white" large class="px-20">vertical_split</v-icon>
+                  <span class="btn-txt d-flex">SplitScreen</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" @click="updateTabContent(2)" class="tab_buttn" id="tab3">
+                  <v-icon color="white" large class="px-20">hd</v-icon>
+                  <span class="btn-txt">HighDefination</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" @click="updateTabContent(3)" class="tab_buttn" id="tab4">
+                  <v-icon color="white" large class="px-20">public</v-icon>
+                  <span class="btn-txt d-flex">GlobalAccess</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content text-justify">
+            <v-container class="content-container">{{tabsContent[tab_no].content}}</v-container>
+
+            <div class="devices-list-label d-flex justify-center mt-100">Supported Technologies.</div>
+            <div class="devices d-flex align-center">
+              <ul class="devices-list">
+                <li v-for="n in other_devices" :key="n">{{n}}</li>
+              </ul>
+            </div>
+          </div>
+        </v-container>
       </div>
     </v-img>
   </div>
