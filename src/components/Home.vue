@@ -64,6 +64,7 @@
             class="ma-4"
             width
             height="220"
+            :to="'/checkout-'+n.plan"
             @click="toggle"
           >
             <v-img :src="n.src" width="256" class="d-none d-sm-flex" @click="checkout(n.plan)"></v-img>
