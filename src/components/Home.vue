@@ -89,7 +89,42 @@
       :src="require('../assets/wifinity/man-chearing.jpg')"
     >
       <div class="features">
-        
+        <v-container>
+          <div class="tabs">
+            <ul class="tab-items d-flex justify-center">
+              <li>
+                <button type="button" @click="updateTabContent(0)" class="tab_buttn active_link1" id="tab1">
+                  <v-icon color="white" large class="px-20">phonelink</v-icon>
+                  <span class="btn-txt d-none d-flex">MultiDevice</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" @click="updateTabContent(1)" class="tab_buttn" id="tab2">
+                  <v-icon color="white" large class="px-20">vertical_split</v-icon>
+                  <span class="btn-txt d-flex">SplitScreen</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" @click="updateTabContent(2)" class="tab_buttn" id="tab3">
+                  <v-icon color="white" large class="px-20">hd</v-icon>
+                  <span class="btn-txt">HighDefination</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" @click="updateTabContent(3)" class="tab_buttn" id="tab4">
+                  <v-icon color="white" large class="px-20">public</v-icon>
+                  <span class="btn-txt d-flex">GlobalAccess</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content text-justify">
+            <v-container class="content-container">{{tabsContent[tab_no].content}}</v-container>
+
+           
+            </div>
+          </div>
+        </v-container>
       </div>
     </v-img>
   </div>
